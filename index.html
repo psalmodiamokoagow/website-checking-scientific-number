@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+</head>
+<body>
+    <h1>Scientific Number Checker</h1>
+
+    <form id="scientific-form">
+        <label for="scientific-number">Enter a scientific number:</label>
+        <input type="text" id="scientific-number" placeholder="e.g., 6.022e23">
+        <button type="button" onclick="checkScientificNumber()">Check</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkScientificNumber() {
+            var input = document.getElementById('scientific-number').value;
+
+            // Check if input is a valid scientific number
+            var scientificRegex = /^(\d+(\.\d+)?|\.\d+)(e[-+]?\d+)?$/i;
+            if (scientificRegex.test(input)) {
+                document.getElementById('result').innerText = "Yes, " + input + " it is a scientific number.";
+            } else {
+                document.getElementById('result').innerText = "No, " + input + " it is not scientific number.";
+            }
+        }
+    </script>
+</body>
+</html>
